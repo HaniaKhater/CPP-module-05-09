@@ -6,38 +6,33 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 23:32:52 by hania             #+#    #+#             */
-/*   Updated: 2023/04/23 02:28:08 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/23 02:29:32 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <stdexcept>
 
 int main() {
-    // Create a bureaucrat with a valid grade
-    Bureaucrat yael("Yael", 1);
-    std::cout << yael << std::endl;  
-    
-    // Try to create a bureaucrat with an invalid grade
-    try {
-      Bureaucrat mark("Mark", 151);
-    } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
-    }   
-    
-    // Try to increment yael's grade
-    try {
-      yael.promote();
-    } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
-    }   
-    
-    // Decrement yael's grade
-    yael.demote();
-    std::cout << yael << std::endl;  
-    
-    // Test Copy constructor
-    Bureaucrat copy(yael);
-    std::cout << copy << std::endl;
-    return 0;
+  // Create a valid Form
+  Form form("ID Renewal", 1, 15);
+
+  // Check if the form is signed.
+  std::cout << "Is the form signed? " << form.sendStatus() << std::endl;
+
+  // // Try to sign the form with a bureaucrat with a low grade.
+  // Bureaucrat bureaucrat("John Doe", 15);
+  // try {
+  //   form.beSigned(bureaucrat);
+  // } catch (Form::GradeTooLowException& e) {
+  //   std::cout << e.what() << std::endl;
+  // }
+
+  // // Try to sign the form with a bureaucrat with a high grade.
+  // bureaucrat.setGrade(1);
+  // form.beSigned(bureaucrat);
+  // std::cout << "Is the form signed? " << form.isSigned() << std::endl;
+
+  return 0;
 }
