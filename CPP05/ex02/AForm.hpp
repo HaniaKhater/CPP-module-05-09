@@ -1,43 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 01:15:08 by hania             #+#    #+#             */
-/*   Updated: 2023/04/23 03:27:36 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/23 03:28:21 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include "Bureaucrat.hpp"
 #include <iostream>
+#include <stdexcept>
+#include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
-class Form {
+class AForm {
     private:
         const std::string   _name;
         bool                _isSigned;
         const int           _gradeSign;
         const int           _gradeExec;
     public:
-        Form();
-        Form( const Form &ref );
-        Form(std::string, int toSign, int toExec);
-        ~Form();
-        Form&       operator=( const Form &rhs );
+        AForm();
+        AForm( const AForm &ref );
+        AForm(std::string, int toSign, int toExec);
+        ~AForm();
+        AForm&       operator=( const AForm &rhs );
         std::string getName() const;
         int         getGradeSign() const;
         int         getGradeExec() const;
         bool        getStatus() const;
         std::string sendStatus() const;
         void        beSigned( const Bureaucrat &bu );
+        void        beExecuted( const Bureaucrat &bu ) const;
+        virtual void    execute( const Bureaucrat & executor ) const = 0;
+        class	IsAlreadySignedException: public std::exception {
+	        public:
+	    	    virtual const char*	what(void) const throw();
+	    };
+	    class	IsNotSignedException: public std::exception {
+	        public:
+	    	    virtual const char*	what(void) const throw();
+	    };
 };
 
-std::ostream & operator << (std::ostream & out, const Form &in);
+std::ostream & operator << (std::ostream & out, const AForm &in);
 
 #endif
