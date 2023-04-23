@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 23:32:47 by hania             #+#    #+#             */
-/*   Updated: 2023/04/23 01:09:03 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/23 02:54:38 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ void    Bureaucrat::demote(){
 }
 
 std::ostream & operator << (std::ostream & out, const Bureaucrat &in){
-	out << in.getName() << " has grade of " << in.getGrade() << std::endl;
+	out << in.getName() << ", with grade of " << in.getGrade() << std::endl;
 	return out;
 }

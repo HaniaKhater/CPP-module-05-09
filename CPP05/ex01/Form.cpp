@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 01:15:06 by hania             #+#    #+#             */
-/*   Updated: 2023/04/23 02:23:44 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/23 02:51:13 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,13 @@ std::string    Form::sendStatus() const {
     if (_isSigned)
         return "Signed";
     return "Not Signed";
+}
+
+void    Form::beSigned( const Bureaucrat &bu ) {
+    if ( bu.getGrade() <= _gradeSign )
+        _isSigned = true;
+    else
+        throw Bureaucrat::GradeTooLowException();
 }
 
 std::ostream & operator << (std::ostream & out, const Form &in) {

@@ -6,13 +6,15 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 23:32:49 by hania             #+#    #+#             */
-/*   Updated: 2023/04/23 02:25:35 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/23 02:59:21 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_H
 #define BUREAUCRAT_H
 #include <iostream>
+
+class Form;
 
 class Bureaucrat {
     private:
@@ -29,6 +31,7 @@ class Bureaucrat {
         void        _tryGrade(void) const;
         void        promote();
         void        demote();
+        void        signForm( Form &form );
         
         class GradeTooHighException : public std::exception{
             public:

@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 01:15:08 by hania             #+#    #+#             */
-/*   Updated: 2023/04/23 02:24:52 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/23 02:51:10 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Form {
         int         getGradeExec() const;
         bool        getStatus() const;
         std::string sendStatus() const;
-        void        signForm( Bureaucrat const &bur);
+        void        beSigned( const Bureaucrat &bu );
 };
 
 std::ostream & operator << (std::ostream & out, const Form &in);
