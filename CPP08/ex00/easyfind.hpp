@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:57:54 by hania             #+#    #+#             */
-/*   Updated: 2023/04/25 11:00:38 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/25 11:11:27 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@
 #include <algorithm>
 
 template<typename T>
-typename T::iterator easyfind(T& container, int value) {
-    typename T::iterator it = std::find(container.begin(), container.end(), value);
-    if (it == container.end()) {
+typename T::iterator easyfind( T& container, int value ) {
+    typename T::iterator it = std::find( container.begin(), container.end(), value );
+    if ( it == container.end() )
         throw std::exception();
-    }
     return it;
 }
 
