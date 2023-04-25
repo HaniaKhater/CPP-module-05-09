@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 09:27:10 by hania             #+#    #+#             */
-/*   Updated: 2023/04/25 10:34:28 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/25 10:36:59 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,6 @@ const T& Array<T>::operator[]( unsigned int i ) const {
 }
 
 template <typename T>
-size_t Array<T>::getSize() const {
+size_t Array<T>::size() const {
     return _size;
 }

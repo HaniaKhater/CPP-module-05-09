@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 08:53:04 by hania             #+#    #+#             */
-/*   Updated: 2023/04/25 10:32:37 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/25 10:37:32 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,27 +38,27 @@ int main()
     s[2] = '!';
     
     std::cout << "a: ";
-    for ( size_t i = 0; i < a.getSize(); ++i )
+    for ( size_t i = 0; i < a.size(); ++i )
         std::cout << a[i] << " ";
     std::cout << std::endl;
 
     std::cout << "b: ";
-    for ( size_t i = 0; i < b.getSize(); ++i )
+    for ( size_t i = 0; i < b.size(); ++i )
         std::cout << b[i] << " ";
     std::cout << std::endl;
 
     std::cout << "c: ";
-    for ( size_t i = 0; i < c.getSize(); ++i )
+    for ( size_t i = 0; i < c.size(); ++i )
         std::cout << c[i] << " ";
     std::cout << std::endl;
 
     std::cout << "s: ";
-    for ( size_t i = 0; i < s.getSize(); ++i )
+    for ( size_t i = 0; i < s.size(); ++i )
         std::cout << s[i] << " ";
     std::cout << std::endl;
 
     try {
-        s[3] = 'X'; // this index is out of bounds and should throw an exception
+        s[3] = 'X';
     }
     catch (const Array<char>::InvalidIndexException& e) {
         std::cerr << "Error: " << e.what() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 08:53:02 by hania             #+#    #+#             */
-/*   Updated: 2023/04/25 10:28:37 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/25 10:37:06 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Array {
         };
         T&              operator[](unsigned int i);
         const T&        operator[](unsigned int i) const;
-        size_t          getSize() const;
+        size_t          size() const;
     
     private:
         T* _data;
