@@ -6,12 +6,12 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:57:54 by hania             #+#    #+#             */
-/*   Updated: 2023/04/25 11:11:27 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/26 06:26:09 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_H
-#define EASYFIND_H
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
 
 #include <algorithm>
 
