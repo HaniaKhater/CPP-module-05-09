@@ -6,7 +6,7 @@
 #    By: hania <hania@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/22 23:28:46 by hania             #+#    #+#              #
-#    Updated: 2023/04/26 06:28:32 by hania            ###   ########.fr        #
+#    Updated: 2023/04/27 05:00:04 by hania            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ CFLAGS		=	-g3 -Wall -Wextra -Werror -std=c++98
 INCS		=   ./MutantStack.hpp\
 
 SRCS		=	./main.cpp\
-			./MutantStack.cpp\
 
 OBJS		=	$(SRCS:.cpp=.o)
 
