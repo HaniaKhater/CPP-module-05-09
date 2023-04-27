@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 12:14:00 by hania             #+#    #+#             */
-/*   Updated: 2023/04/27 03:20:50 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/27 06:26:07 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ template <typename T>
 class MutantStack : public std::stack<T> {
     public:
         MutantStack();
-        MutantStack(const MutantStack &cpy);
-        MutantStack & operator=(const MutantStack &cpy);
+        MutantStack( const MutantStack &ref );
+        ~MutantStack();
+        MutantStack & operator=( const MutantStack &rhs );
         typedef typename std::stack<T>::container_type::iterator iterator;
         iterator begin();
         iterator end();
-        ~MutantStack();
 };
 
 #include "MutantStack.tpp"

@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 12:13:51 by hania             #+#    #+#             */
-/*   Updated: 2023/04/27 05:09:42 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/27 06:31:50 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ int main()
     MutantStack<int>::iterator ite = mstack.end();
     ++it;
     --it;
-    while (it != ite)
+    while ( it != ite )
     {
         std::cout << *it << std::endl;
         ++it;
     }
-    if (mstack.empty())
+    if ( mstack.empty() )
         std::cout << "MutantStack is empty" << std::endl;
     else
         std::cout << "MutantStack is not empty" << std::endl;
@@ -60,12 +60,12 @@ int main()
     std::list<int>::iterator lite = l.end();
     ++lit;
     --lit;
-    while (lit != lite)
+    while ( lit != lite )
     {
         std::cout << *lit << std::endl;
         ++lit;
     }
-    if (l.empty())
+    if ( l.empty() )
         std::cout << "List is empty" << std::endl;
     else
         std::cout << "List is not empty" << std::endl;
@@ -88,12 +88,12 @@ int main()
     std::vector<int>::iterator vite = v.end();
     ++vit;
     --vit;
-    while (vit != vite)
+    while ( vit != vite )
     {
         std::cout << *vit << std::endl;
         ++vit;
     }
-    if (v.empty())
+    if ( v.empty() )
         std::cout << "Vector is empty" << std::endl;
     else
         std::cout << "Vector is not empty" << std::endl;
