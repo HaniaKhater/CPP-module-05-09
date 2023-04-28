@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 06:20:42 by hania             #+#    #+#             */
-/*   Updated: 2023/04/29 01:08:31 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/29 01:12:34 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,4 +166,3 @@ void    PrintResults( std::string date, float bitcoins, std::map<std::string, fl
         std::cout << date << " => " << static_cast<float>(bitcoins) << " = " << std::fixed << std::setprecision(2) << "\033[1;33m" << bitcoins * ite->second << "\033[0m" << std::endl;
     }
 }
-// add feb tests in csv
