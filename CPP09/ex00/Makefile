@@ -6,11 +6,11 @@
 #    By: hania <hania@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/22 23:28:46 by hania             #+#    #+#              #
-#    Updated: 2023/04/27 06:21:36 by hania            ###   ########.fr        #
+#    Updated: 2023/04/28 02:08:46 by hania            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	BitcoinExchange
+NAME		=	btc
 
 COMPILER	=	c++
 
