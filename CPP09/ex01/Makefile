@@ -6,19 +6,20 @@
 #    By: hania <hania@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/22 23:28:46 by hania             #+#    #+#              #
-#    Updated: 2023/04/27 05:00:04 by hania            ###   ########.fr        #
+#    Updated: 2023/04/28 08:27:35 by hania            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	MutantStack
+NAME		=	RPN
 
 COMPILER	=	c++
 
 CFLAGS		=	-g3 -Wall -Wextra -Werror -std=c++98
 
-INCS		=   ./MutantStack.hpp\
+INCS		=   ./RPN.hpp\
 
 SRCS		=	./main.cpp\
+			./RPN.cpp\
 
 OBJS		=	$(SRCS:.cpp=.o)
 

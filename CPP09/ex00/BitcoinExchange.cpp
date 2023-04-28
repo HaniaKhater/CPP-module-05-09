@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 06:20:42 by hania             #+#    #+#             */
-/*   Updated: 2023/04/28 07:30:59 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/28 10:24:16 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,19 @@ bool    ValidDate( int year, int month, int day ) {
     return true; 
 }
 
-bool    ValidAmount( float amount ) {
-    if ( amount >= 0 && amount <= 1000)
-        return true;
-    return false;
+bool    ValidAmount( float btc, std::string amount ) {
+    int decimal = 0;
+    for ( size_t i = 0; i < amount.length(); i++ ) {
+        if ( amount[0] == '.' )
+            return false;
+        if ( amount[i] == '.' )
+            decimal++;
+        if ( (!(isdigit(amount[i])) && amount[i] != '.' && (decimal == 1 || decimal == 0)) || decimal > 1 )
+            return false;
+    }
+    if ( btc < 0 || btc > 1000)
+        return false;
+    return true;
 }
 
 void    Convert( char *file, std::map<std::string, float>& database ) {
@@ -71,7 +80,7 @@ void    Convert( char *file, std::map<std::string, float>& database ) {
     while ( !input.eof() ) {
         std::getline( input, line );
         if ( line.length() < 14 || !ValidFormat( line ))  {
-            if ( line != "date | value" )
+            if ( line != "date | value" && !input.eof() )
                 std::cerr << "Invalid Format => " << line << std::endl;
             continue;
         }
@@ -87,17 +96,16 @@ void    Convert( char *file, std::map<std::string, float>& database ) {
             std::cerr << "Invalid Date => " << line << std::endl;
             continue;
         }
-        std::string         date;
         std::string         amount = line.substr(13);
         std::stringstream   qty;
         float               bitcoins = 0.00;
         qty << amount;
         qty >> bitcoins;
-        if ( !ValidAmount(bitcoins) ) {
-            std::cerr << "Invalid amount => " << line << std::endl;
+        if ( !ValidAmount( bitcoins, amount ) ) {
+            std::cerr << "Invalid Amount => " << line << std::endl;
             continue;
         }
-        date = AssembleDate( year, month, day );
+        std::string date = AssembleDate( year, month, day );
         PrintResults( date, bitcoins, database );
     }
 }
@@ -120,8 +128,7 @@ void    PrintResults( std::string date, float bitcoins, std::map<std::string, fl
     bool    exact = false;
 
     for ( ; itb != ite; itb++ ) {
-        if (itb->first == date)
-        {
+        if (itb->first == date) {
             exact = true;
             break;
         }
@@ -131,7 +138,11 @@ void    PrintResults( std::string date, float bitcoins, std::map<std::string, fl
         exact = false;
     }
     else {
-        ite = database.lower_bound(date);
-        std::cout << date << " => " << bitcoins << " = " << std::fixed << std::setprecision(2) << bitcoins * ite->second << std::endl;
+        ite = database.upper_bound(date);
+        if ( ite == database.begin() )
+            return;
+        ite--;
+        std::cout << date << " => " << static_cast<int>(bitcoins) << " = " << std::fixed << std::setprecision(2) << bitcoins * ite->second << std::endl;
     }
 }
+// add color and tests in csv
