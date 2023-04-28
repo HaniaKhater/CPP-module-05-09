@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 06:20:42 by hania             #+#    #+#             */
-/*   Updated: 2023/04/28 05:51:27 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/28 07:30:59 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,16 @@ void    RecordRates( std::map<std::string, float>& database ) {
     input.close();
 }
 
+bool    ValidFormat( std::string line ) {
+    size_t  pipe = line.find("|");
+    if (( line[pipe + 1] != ' ' || line[pipe - 1] != ' ') 
+    || ( line.substr(4,1) != "-" && line.substr(7,1) != "-" ))
+        return false;
+    return true;
+}
+
 bool    ValidDate( int year, int month, int day ) {
     int     limits[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    
     if ( day < 1 || month < 1 || month > 12 || year < 2009 )
         return false;
     if ( month == 2 && !((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) )
@@ -45,14 +52,6 @@ bool    ValidDate( int year, int month, int day ) {
     return true; 
 }
 
-bool    ValidFormat( std::string line ) {
-    size_t  pipe = line.find("|");
-    if (( line[pipe + 1] != ' ' || line[pipe - 1] != ' ') 
-    || ( line.substr(4,1) != "-" && line.substr(7,1) != "-" ))
-        return false;
-    return true;
-}
-
 bool    ValidAmount( float amount ) {
     if ( amount >= 0 && amount <= 1000)
         return true;
@@ -60,7 +59,6 @@ bool    ValidAmount( float amount ) {
 }
 
 void    Convert( char *file, std::map<std::string, float>& database ) {
-    (void)database;
     std::ifstream   input;
     std::string     line;
 
@@ -73,7 +71,8 @@ void    Convert( char *file, std::map<std::string, float>& database ) {
     while ( !input.eof() ) {
         std::getline( input, line );
         if ( line.length() < 14 || !ValidFormat( line ))  {
-            std::cerr << "Invalid Format => " << line << std::endl;
+            if ( line != "date | value" )
+                std::cerr << "Invalid Format => " << line << std::endl;
             continue;
         }
         int                 year, month, day = 0;
@@ -88,6 +87,7 @@ void    Convert( char *file, std::map<std::string, float>& database ) {
             std::cerr << "Invalid Date => " << line << std::endl;
             continue;
         }
+        std::string         date;
         std::string         amount = line.substr(13);
         std::stringstream   qty;
         float               bitcoins = 0.00;
@@ -97,6 +97,41 @@ void    Convert( char *file, std::map<std::string, float>& database ) {
             std::cerr << "Invalid amount => " << line << std::endl;
             continue;
         }
-        std::cout << "Amount: " << amount << std::endl;
+        date = AssembleDate( year, month, day );
+        PrintResults( date, bitcoins, database );
+    }
+}
+
+std::string     AssembleDate( int year, int month, int day ) {
+    std::stringstream   y, m, d;
+    std::string         date;
+
+    y << year;
+    m << std::setw(2) << std::setfill('0') << month;
+    d << std::setw(2) << std::setfill('0') << day;
+    date = y.str() + "-" + m.str() + "-" + d.str();
+    return date;
+}
+
+void    PrintResults( std::string date, float bitcoins, std::map<std::string, float>& database)
+{
+    std::map<std::string, float>::iterator itb = database.begin();
+    std::map<std::string, float>::iterator ite = database.end();
+    bool    exact = false;
+
+    for ( ; itb != ite; itb++ ) {
+        if (itb->first == date)
+        {
+            exact = true;
+            break;
+        }
+    }
+    if ( exact == true ) {
+        std::cout << date << " => " << bitcoins << " = " <<  std::fixed << std::setprecision(2) << bitcoins * itb->second << std::endl;
+        exact = false;
+    }
+    else {
+        ite = database.lower_bound(date);
+        std::cout << date << " => " << bitcoins << " = " << std::fixed << std::setprecision(2) << bitcoins * ite->second << std::endl;
     }
 }
