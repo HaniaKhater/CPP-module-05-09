@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 06:20:42 by hania             #+#    #+#             */
-/*   Updated: 2023/04/28 21:05:36 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/29 01:08:31 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void    Convert( char *file, std::map<std::string, float>& database ) {
         m >> month;
         d >> day;
         if ( !ValidDate( year, month, day ) ) {
-            std::cerr << "Invalid Date => " << line << std::endl;
+            std::cerr << "Invalid Date   => " << line << std::endl;
             continue;
         }
         std::string         amount = line.substr(13);
@@ -121,6 +121,29 @@ std::string     AssembleDate( int year, int month, int day ) {
     return date;
 }
 
+std::map<std::string, float>::iterator  FindPreviousDate( std::map<std::string, float>& database, std::string unfound ) {
+    std::map<std::string, float>::iterator itb = database.begin();
+    std::map<std::string, float>::iterator ite = database.end();
+    std::string         tmp;
+    std::stringstream   a, t;
+    int                 actual, next;
+    
+    tmp = unfound.erase(4,1).erase(6,1);
+    a << unfound;
+    a >> actual;
+
+    for ( ; itb != ite; itb++ ) {
+        tmp = itb->first;
+        t.clear();
+        t << tmp;
+        t >> next;
+        if ( next > actual ) {
+            return ( itb );
+        }
+    }
+    return ite;
+}
+
 void    PrintResults( std::string date, float bitcoins, std::map<std::string, float>& database)
 {
     std::map<std::string, float>::iterator itb = database.begin();
@@ -138,12 +161,9 @@ void    PrintResults( std::string date, float bitcoins, std::map<std::string, fl
         exact = false;
     }
     else {
-        ite = database.upper_bound(date);
-        if ( ite == database.begin() )
-            return;
+        ite = FindPreviousDate( database, date );
         ite--;
-        std::cout << date << " => " << static_cast<int>(bitcoins) << " = " << std::fixed << std::setprecision(2) << bitcoins * ite->second << std::endl;
+        std::cout << date << " => " << static_cast<float>(bitcoins) << " = " << std::fixed << std::setprecision(2) << "\033[1;33m" << bitcoins * ite->second << "\033[0m" << std::endl;
     }
 }
-// still have issue with lower bound
-// add color and tests in csv
+// add feb tests in csv
