@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 06:20:42 by hania             #+#    #+#             */
-/*   Updated: 2023/04/28 10:24:16 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/28 21:05:36 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,4 +145,5 @@ void    PrintResults( std::string date, float bitcoins, std::map<std::string, fl
         std::cout << date << " => " << static_cast<int>(bitcoins) << " = " << std::fixed << std::setprecision(2) << bitcoins * ite->second << std::endl;
     }
 }
+// still have issue with lower bound
 // add color and tests in csv
