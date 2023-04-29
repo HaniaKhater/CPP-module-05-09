@@ -1,11 +1,11 @@
 ## **REVERSE POLISH NOTATION (RPN)**
 
-### Parse:
+#### Parse:
 * Identify non-digits or non-matematical operators.
 * Make sure each token is seperated by space.
 * Count the number of operands and operators to make sure that if there are n operands, there a (n - 1) operators.
 * Save all tokens in a fullStack.
-### Live calculations:
+#### Live calculations:
 To evaluate the expression, you need to loop through fullStack:
 
 * When you encounter a number<br>
@@ -18,8 +18,6 @@ To evaluate the expression, you need to loop through fullStack:
 
 ---
 ### Examples
-
-*Here are some examples of Reverse Polish Notation expressions:
 
 ![Image](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Reverse_Polish_Notation_Stack_Example.jpg/800px-Reverse_Polish_Notation_Stack_Example.jpg?20140514181604)
 
