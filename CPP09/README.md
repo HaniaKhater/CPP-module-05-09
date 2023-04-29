@@ -1,6 +1,6 @@
 ## CPP09 - Containers
 
-*(Each container type can only be used in in one exercice)*
+*(Each container type can only be used in one exercice)*
 
 ### ex00: Bitcoin Exchange
 Create a program that reads a CSV file representing bitcoin prices over time, and takes another file as input. The program should output the value of a certain amount of bitcoin on a certain date. The value in the input file should be multiplied by the exchange rate according to the date indicated in the database, and if the date used in the input does not exist in the database, the closest previous date contained in the database should be used.
