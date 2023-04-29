@@ -11,5 +11,5 @@ Create a program named RPN that takes an inverted Polish mathematical expression
 > The most appropriate container to use would be a stack. This is because reverse Polish notation is a stack-based calculation method, where operators are applied to the top elements of the stack, and the result is pushed back onto the stack. Thus, a stack container is the most natural fit for this exercise.
 
 ### ex02: PmergeMe
-Create a program named PmergeMe that can use a positive integer sequence as an argument and uses a merge-insert sort algorithm to sort the sequence. The program should be able to handle at least 3000 different integers and display information line by line on the standard output.
+Create a program named PmergeMe that takes a positive integer sequence as an argument and uses a merge-insert sort algorithm to sort the sequence. The program should be able to handle at least 3000 different integers and display information line by line on the standard output.
 > The most appropriate containers to use would be a vector and a deque. This is because the merge-insertion sort algorithm requires a data structure that can be efficiently sorted, such as a vector, and a data structure that can efficiently insert elements at both ends, such as a deque. By using both containers, we can take advantage of their respective strengths to implement the algorithm efficiently.
