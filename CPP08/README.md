@@ -1,4 +1,4 @@
-## CPP08 - Templated containers, iterators, algorithms
+# C++08 - Templated containers, iterators, algorithm
 
 ## ex00: Easy find
 The exercise requires writing a function template called "easyfind" that takes two parameters: a container of integers and an integer to be found. The function should find the first occurrence of the second parameter in the first parameter, and return an error value if no occurrence is found. The implementation should also include test cases.
