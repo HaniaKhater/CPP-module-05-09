@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 08:22:28 by hania             #+#    #+#             */
-/*   Updated: 2023/04/29 10:49:17 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/30 05:12:26 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int     calculator( const char token, int a, int b ) {
         return a * b;
     else if ( token == '/' ) {
         if ( b == 0 )
-            throw ( std::invalid_argument("Invalid division: Dividing by zero") );
+            throw ( std::invalid_argument("Invalid division: Cannot divide by zero") );
         return a / b;
     }
     throw ( std::invalid_argument("Invalid operator") );
