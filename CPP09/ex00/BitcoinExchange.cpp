@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 06:20:42 by hania             #+#    #+#             */
-/*   Updated: 2023/04/30 13:52:46 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/30 13:59:02 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,15 @@ bool    ValidDate( int year, int month, int day ) {
     return true; 
 }
 
-bool    ValidAmount( float btc, std::string qty ) {
+bool    ValidAmount( float btc, std::string amount ) {
     int decimal = 0;
-    int neg = 0;
-
-    for ( size_t j = 0; qty[j] == '-'; j++ ) {
-        neg++;
-    }
-    if ( neg % 2 == 1 )
-        return false;
-    for ( size_t i = 0; i < qty.length(); i++ ) {
-        if ( qty[i] == '.' )
+    for ( size_t i = 0; i < amount.length(); i++ ) {
+        if ( amount[i] == '.' )
             decimal++;
-        if ( (!(isdigit(qty[i]) || qty[i] == '-' ) && qty[i] != '.' && (decimal == 1 || decimal == 0)) || decimal > 1 )
+        if ( (!(isdigit(amount[i])) && amount[i] != '.' && (decimal == 1 || decimal == 0)) || decimal > 1 )
             return false;
     }
-    if ( btc < 0 || btc > 1000 || neg % 2 == 1 )
+    if ( btc < 0 || btc > 1000)
         return false;
     return true;
 }
@@ -104,15 +97,13 @@ void    Convert( char *file, std::map<std::string, float>& database ) {
         std::string         amount = line.substr(13);
         std::stringstream   qty;
         float               bitcoins = 0.00;
-        
+        qty << amount;
+        qty >> bitcoins;
         if ( !ValidAmount( bitcoins, amount ) ) {
             std::cerr << "Invalid Amount => " << line << std::endl;
             continue;
         }
-        for ( size_t i = 0; amount.at(0) == '-'; i++)
-            amount = amount.substr(1);
-        qty << amount;
-        qty >> bitcoins;        std::string date = AssembleDate( year, month, day );
+        std::string date = AssembleDate( year, month, day );
         PrintResults( date, bitcoins, database );
     }
 }
