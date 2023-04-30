@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 08:32:11 by hania             #+#    #+#             */
-/*   Updated: 2023/04/30 00:35:25 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/30 03:51:52 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int isSorted( long nbs[], int qty ) {
            && isSorted( nbs, qty - 1);
 }
 
-void    parse( int qty, char **arg, long *nbs ) {
+void    Parse( int qty, char **arg, long *nbs ) {
     for ( size_t i = 0; arg[i]; i++) {
         if ( arg[i][0] == '-' )
             throw ( std::invalid_argument("PmergeMe only accepts positive numbers") );
@@ -29,11 +29,93 @@ void    parse( int qty, char **arg, long *nbs ) {
             if ( !isdigit( arg[i][j] ) )
                 throw ( std::invalid_argument("PmergeMe only accepts numbers") );
         }
-        std::cout << arg[i] << std::endl;
         nbs[i] = atol( arg[i] );
         if ( nbs[i] > INT_MAX )
             throw ( std::invalid_argument("PmergeMe does not accept numbers higher than INT_MAX") );
     }
     if ( isSorted( nbs, qty ) )
         throw ( std::invalid_argument("The input is already sorted") );  
+}
+
+void    MergeInsertVector( std::vector<std::pair<unsigned int, unsigned int> > &container, bool odd, unsigned int tmp )
+{
+    std::vector<unsigned int>   low, high;
+    struct timeval  start, end;
+    long            sec, micro, timeTaken;
+
+    gettimeofday( &start, NULL );
+    for ( size_t i = 0; i < container.size(); i++ ) {
+        if ( container[i].first > container[i].second )
+            std::swap( container[i].first, container[i].second );
+    }
+
+    for ( size_t i = 0; i < container.size(); i++ )
+        low.push_back( container[i].first );
+    for ( size_t i = 0; i < container.size(); i++ )
+        high.push_back( container[i].second );
+    
+    std::sort( high.begin(), high.end() );
+    for ( size_t i = 0; i < low.size(); i++ )
+        high.insert( std::lower_bound( high.begin(), high.end(), low[i]), low[i] );
+
+    if ( odd )
+        high.insert( std::lower_bound( high.begin(), high.end(), tmp), tmp );
+
+    std::cout << "After  : ";
+    if ( high.size() < 10 ) {
+        for ( size_t i = 0; i < high.size(); i++ )
+            std::cout << high[i] << " ";
+    } else {
+        for ( int i = 1; i < 10; i++ )
+            std::cout << high[i] << " ";
+        std::cout << "[...]";
+    }
+    std::cout << std::endl;
+
+    gettimeofday( &end, NULL );
+    sec = end.tv_sec - start.tv_sec;
+    micro = end.tv_usec - start.tv_usec;
+    timeTaken = ( sec / 1000000 ) + ( micro );
+    std::cout << "Time to process a range of " << high.size() << " elements with std::vector : " << timeTaken << " microseconds" << std::endl;
+}
+
+void    MergeInsertDeque( std::deque<std::pair<unsigned int, unsigned int> > &container, bool odd, unsigned int tmp ) {
+    std::deque<unsigned int>   low, high;
+    struct timeval  start, end;
+    long            sec, micro, timeTaken;
+
+    gettimeofday( &start, NULL );
+    for ( size_t i = 0; i < container.size(); i++ ) {
+        if ( container[i].first > container[i].second )
+            std::swap( container[i].first, container[i].second );
+    }
+
+    for ( size_t i = 0; i < container.size(); i++ )
+        low.push_back( container[i].first );
+    for ( size_t i = 0; i < container.size(); i++ )
+        high.push_back( container[i].second );
+    
+    std::sort( high.begin(), high.end() );
+    for ( size_t i = 0; i < low.size(); i++ )
+        high.insert( std::lower_bound( high.begin(), high.end(), low[i]), low[i] );
+
+    if ( odd )
+        high.insert( std::lower_bound( high.begin(), high.end(), tmp), tmp );
+
+    std::cout << "After  : ";
+    if ( high.size() < 10 ) {
+        for ( size_t i = 0; i < high.size(); i++ )
+            std::cout << high[i] << " ";
+    } else {
+        for ( int i = 1; i < 10; i++ )
+            std::cout << high[i] << " ";
+        std::cout << "[...]";
+    }
+    std::cout << std::endl;
+
+    gettimeofday( &end, NULL );
+    sec = end.tv_sec - start.tv_sec;
+    micro = end.tv_usec - start.tv_usec;
+    timeTaken = ( sec / 1000000 ) + ( micro );
+    std::cout << "Time to process a range of " << high.size() << " elements with std::deque : " << timeTaken << " microseconds" << std::endl;
 }
