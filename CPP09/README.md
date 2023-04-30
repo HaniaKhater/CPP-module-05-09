@@ -7,7 +7,7 @@ Create a program that reads a CSV file representing bitcoin prices over time, an
 > The most appropriate container to use would be an associative container such as a map or unordered_map. This is because the program needs to efficiently search for the exchange rate of a particular date, and associative containers provide fast lookup times based on keys.
 
 ### ex01: Reverse Polish Notation
-Create a program named RPN that takes an inverted Polish mathematical expression as an argument, and processes the expression to output the correct result on the standard output. The program should handle operations with these tokens: "+ - / *", and be able to handle errors.
+Create a program named RPN that takes an inverted Polish mathematical expression as an argument, and processes the expression to output the correct result on the standard output. The program should handle operations with these tokens: `+` `-` `/` & `*`, and be able to handle errors.
 > The most appropriate container to use would be a stack. This is because reverse Polish notation is a stack-based calculation method, where operators are applied to the top elements of the stack, and the result is pushed back onto the stack. Thus, a stack container is the most natural fit for this exercise.
 
 ### ex02: PmergeMe
