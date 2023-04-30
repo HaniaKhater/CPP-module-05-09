@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 08:31:39 by hania             #+#    #+#             */
-/*   Updated: 2023/04/30 03:51:33 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/30 11:19:19 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,15 @@ int     main( int ac, char **av ) {
         Parse( ac - 1, &av[1], nbs );
     } catch ( std::invalid_argument &e ) {
         std::cerr << "Error: " << e.what() << std::endl;
+        return 0;
     }
 
     std::cout << "Before : "; 
-    if ( ac < 11 ) {
+    if ( ac < 7 ) {
         for ( int i = 1; i < ac; i++ )
             std::cout << av[i] << " ";
     } else {
-        for ( int i = 1; i < 10; i++ )
+        for ( int i = 1; i < 5; i++ )
             std::cout << av[i] << " ";
         std::cout << "[...]";
     }

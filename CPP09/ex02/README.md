@@ -20,7 +20,7 @@ Each of the following error cases throws its own exception as to have specific e
 * Negative numbers (not supposed to handle)
 * Decimal numbers
 * Outside of int limits
-* Input is already sorted
+* Already sorted
 
 
 ## Example

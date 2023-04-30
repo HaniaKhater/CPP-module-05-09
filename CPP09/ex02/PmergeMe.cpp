@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 08:32:11 by hania             #+#    #+#             */
-/*   Updated: 2023/04/30 08:31:49 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/30 11:33:53 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void    Parse( const int qty, char **arg, long *nbs ) {
         throw ( std::invalid_argument("The input is already sorted") );  
 }
 
-void    MergeInsertVector( std::vector<std::pair<unsigned int, unsigned int> > &container, const bool odd, const unsigned int tmp )
+void    MergeInsertVector( std::vector<std::pair<unsigned int, unsigned int> > &container, const bool &odd, const unsigned int &tmp )
 {
     std::vector<unsigned int>   low, high;
     struct timeval  start, end;
@@ -62,11 +62,11 @@ void    MergeInsertVector( std::vector<std::pair<unsigned int, unsigned int> > &
         high.insert( std::lower_bound( high.begin(), high.end(), tmp), tmp );
 
     std::cout << "After  : ";
-    if ( high.size() < 10 ) {
+    if ( high.size() < 6 ) {
         for ( size_t i = 0; i < high.size(); i++ )
             std::cout << high[i] << " ";
     } else {
-        for ( int i = 1; i < 10; i++ )
+        for ( int i = 1; i < 6; i++ )
             std::cout << high[i] << " ";
         std::cout << "[...]";
     }
@@ -76,7 +76,7 @@ void    MergeInsertVector( std::vector<std::pair<unsigned int, unsigned int> > &
     sec = end.tv_sec - start.tv_sec;
     micro = end.tv_usec - start.tv_usec;
     timeTaken = ( sec / 1000000 ) + ( micro );
-    std::cout << "Time to process a range of " << high.size() << " elements with std::vector : " << timeTaken << " microseconds" << std::endl;
+    std::cout << "Time to process a range of " << high.size() << " elements with std::vector : " << GREEN << timeTaken << " microseconds" << RESET << std::endl;
 }
 
 void    MergeInsertDeque( std::deque<std::pair<unsigned int, unsigned int> > &container, const bool odd, const unsigned int tmp ) {
@@ -103,11 +103,11 @@ void    MergeInsertDeque( std::deque<std::pair<unsigned int, unsigned int> > &co
         high.insert( std::lower_bound( high.begin(), high.end(), tmp), tmp );
 
     std::cout << "After  : ";
-    if ( high.size() < 10 ) {
+    if ( high.size() < 6 ) {
         for ( size_t i = 0; i < high.size(); i++ )
             std::cout << high[i] << " ";
     } else {
-        for ( int i = 1; i < 10; i++ )
+        for ( int i = 1; i < 6; i++ )
             std::cout << high[i] << " ";
         std::cout << "[...]";
     }
@@ -117,5 +117,5 @@ void    MergeInsertDeque( std::deque<std::pair<unsigned int, unsigned int> > &co
     sec = end.tv_sec - start.tv_sec;
     micro = end.tv_usec - start.tv_usec;
     timeTaken = ( sec / 1000000 ) + ( micro );
-    std::cout << "Time to process a range of " << high.size() << " elements with std::deque : " << timeTaken << " microseconds" << std::endl;
+    std::cout << "Time to process a range of " << high.size() << " elements with std::deque : " << GREEN << timeTaken << " microseconds" << RESET << std::endl;
 }
