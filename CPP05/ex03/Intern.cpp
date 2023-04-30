@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 01:18:10 by hania             #+#    #+#             */
-/*   Updated: 2023/04/23 08:49:01 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/30 09:22:17 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ const char*	Intern::FormNotRecognizedException::what(void) const throw()
 	return "The intern can't recognize the form name. Try capitalizing it correctly like Shrubbery Creation";
 }
 
-int	Intern::getFormNbr( std::string form )
+int	Intern::getFormNbr( const std::string form )
 {
 	std::string	form_name[3] = {"Shrubbery Creation", "Robotomy Request", "Presidential Pardon"};
 	for ( int i = 0; i < 3; i++ )
@@ -49,7 +49,7 @@ int	Intern::getFormNbr( std::string form )
 	return (-1);
 }
 
-AForm*  Intern::makeForm( std::string form, std::string target ) {
+AForm*  Intern::makeForm( const std::string form, const std::string target ) {
     AForm   *formPtr = NULL;
     int     formNbr = getFormNbr(form);
 

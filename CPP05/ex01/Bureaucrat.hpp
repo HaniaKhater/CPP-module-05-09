@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 23:32:49 by hania             #+#    #+#             */
-/*   Updated: 2023/04/23 02:59:21 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/30 09:12:36 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Bureaucrat {
     public:
         Bureaucrat( void );
         Bureaucrat( const Bureaucrat &ref );
-        Bureaucrat( std::string name, int grade );
+        Bureaucrat( const std::string name, const int grade );
         Bureaucrat& operator =( const Bureaucrat &rhs );
         ~Bureaucrat();
         std::string getName() const;

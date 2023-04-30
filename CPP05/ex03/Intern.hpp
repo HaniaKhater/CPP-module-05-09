@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 01:18:12 by hania             #+#    #+#             */
-/*   Updated: 2023/04/23 08:41:38 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/30 09:22:07 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Intern {
         Intern( const Intern &ref );
         ~Intern();
         Intern  &operator=( const Intern &rhs);
-        int     getFormNbr( std::string form );
-        AForm*  makeForm( std::string form, std::string target );
+        int     getFormNbr( const std::string form );
+        AForm*  makeForm( const std::string form, const std::string target );
         class	NoTargetException: public std::exception
 	    {
 	        public:

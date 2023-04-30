@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 23:32:47 by hania             #+#    #+#             */
-/*   Updated: 2023/04/23 03:06:00 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/30 09:12:15 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Bureaucrat::Bureaucrat( const Bureaucrat &ref ) : _name(ref._name), _grade(ref._
     std::cout << "Copy constructor has been called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name){
+Bureaucrat::Bureaucrat( const std::string name, const int grade ) : _name(name){
     std::cout << "Constructor has been called" << std::endl;
     if ( grade < 1 )
         throw GradeTooHighException();

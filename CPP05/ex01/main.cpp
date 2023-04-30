@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 23:32:52 by hania             #+#    #+#             */
-/*   Updated: 2023/04/23 03:10:04 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/30 09:14:20 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,12 @@
 #include <stdexcept>
 
 int main() {
-  // Create a Bureaucrat
   Bureaucrat mark("Mark", 1);
   std::cout << mark;
 
-  // Create a Form
   Form form("Immigration Form", 1, 15);
   std::cout << form;
 
-  // Check the form's status
   std::cout << "Is the form signed? " << form.sendStatus() << std::endl;
 
   // Try to sign the form with a bureaucrat high enough

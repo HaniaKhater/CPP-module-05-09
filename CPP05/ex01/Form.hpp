@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 01:15:08 by hania             #+#    #+#             */
-/*   Updated: 2023/04/23 03:27:36 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/30 09:13:32 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Form {
     public:
         Form();
         Form( const Form &ref );
-        Form(std::string, int toSign, int toExec);
+        Form( const std::string, const int toSign, const int toExec);
         ~Form();
         Form&       operator=( const Form &rhs );
         std::string getName() const;

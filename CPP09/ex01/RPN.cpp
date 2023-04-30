@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 08:22:28 by hania             #+#    #+#             */
-/*   Updated: 2023/04/30 05:12:26 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/30 08:22:48 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool    isOperator( const char token ) {
     return ( token == '+' || token == '-' || token == '*' || token == '/' );
 }
 
-void    performRNP( std::string input) {
+void    performRNP( const std::string input) {
     std::stack<int> nbStack;
 	
     for (size_t i = 0; i < input.length(); i++) {
@@ -42,7 +42,7 @@ void    performRNP( std::string input) {
 	std::cout << nbStack.top() << std::endl;
 }
 
-int     calculator( const char token, int a, int b ) {
+int     calculator( const char token, const int a, const int b ) {
     if ( token == '+' )
         return a + b;
     else if ( token == '-' )

@@ -6,20 +6,20 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 08:32:11 by hania             #+#    #+#             */
-/*   Updated: 2023/04/30 03:51:52 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/30 08:31:49 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-int isSorted( long nbs[], int qty ) {
+int isSorted( long nbs[], const int qty ) {
     if (qty == 1 || qty == 0) 
         return 1;
     return nbs[qty - 1] >= nbs[qty - 2]
            && isSorted( nbs, qty - 1);
 }
 
-void    Parse( int qty, char **arg, long *nbs ) {
+void    Parse( const int qty, char **arg, long *nbs ) {
     for ( size_t i = 0; arg[i]; i++) {
         if ( arg[i][0] == '-' )
             throw ( std::invalid_argument("PmergeMe only accepts positive numbers") );
@@ -37,7 +37,7 @@ void    Parse( int qty, char **arg, long *nbs ) {
         throw ( std::invalid_argument("The input is already sorted") );  
 }
 
-void    MergeInsertVector( std::vector<std::pair<unsigned int, unsigned int> > &container, bool odd, unsigned int tmp )
+void    MergeInsertVector( std::vector<std::pair<unsigned int, unsigned int> > &container, const bool odd, const unsigned int tmp )
 {
     std::vector<unsigned int>   low, high;
     struct timeval  start, end;
@@ -79,7 +79,7 @@ void    MergeInsertVector( std::vector<std::pair<unsigned int, unsigned int> > &
     std::cout << "Time to process a range of " << high.size() << " elements with std::vector : " << timeTaken << " microseconds" << std::endl;
 }
 
-void    MergeInsertDeque( std::deque<std::pair<unsigned int, unsigned int> > &container, bool odd, unsigned int tmp ) {
+void    MergeInsertDeque( std::deque<std::pair<unsigned int, unsigned int> > &container, const bool odd, const unsigned int tmp ) {
     std::deque<unsigned int>   low, high;
     struct timeval  start, end;
     long            sec, micro, timeTaken;

@@ -6,14 +6,14 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 01:15:06 by hania             #+#    #+#             */
-/*   Updated: 2023/04/23 04:36:03 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/30 09:14:06 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include <iostream>
 
-Form::Form(std::string name, int toSign, int toExec) 
+Form::Form( const std::string name, const int toSign, const int toExec) 
     : _name(name)
     , _isSigned(false)
     , _gradeSign(toSign)
@@ -48,7 +48,7 @@ Form::~Form() {
     std::cout << "Destructor has been called" << std::endl;
 }
 
-Form&   Form::operator=(const Form &rhs ) {
+Form&   Form::operator=( const Form &rhs ) {
     _isSigned = rhs._isSigned;
     return *this;
 }
@@ -82,7 +82,7 @@ void    Form::beSigned( const Bureaucrat &bu ) {
         throw Bureaucrat::GradeTooLowException();
 }
 
-std::ostream & operator << (std::ostream & out, const Form &in) {
+std::ostream & operator<<(std::ostream & out, const Form &in) {
   return out << "Form Name:                 " << in.getName() << std::endl
 	    << "Grade Required To Sign:    " << in.getGradeSign() << std::endl
 	    << "Grade Required to Execute: " << in.getGradeExec() << std::endl

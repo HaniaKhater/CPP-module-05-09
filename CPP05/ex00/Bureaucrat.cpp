@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 23:32:47 by hania             #+#    #+#             */
-/*   Updated: 2023/04/23 02:54:38 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/30 09:11:22 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Bureaucrat::Bureaucrat( const Bureaucrat &ref ) : _name(ref._name), _grade(ref._
     std::cout << "Copy constructor has been called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name){
+Bureaucrat::Bureaucrat( const std::string name, const int grade ) : _name(name){
     std::cout << "Constructor has been called" << std::endl;
     if ( grade < 1 )
         throw GradeTooHighException();
@@ -70,7 +70,7 @@ void    Bureaucrat::promote(){
         std::cout << this->_name << " has been promoted" << std::endl;
     }
     this->_tryGrade();
-    }
+}
 
 void    Bureaucrat::demote(){
     if ( this->_grade > 0 && this->_grade < 150 ) {
@@ -80,7 +80,7 @@ void    Bureaucrat::demote(){
     this->_tryGrade();
 }
 
-std::ostream & operator << (std::ostream & out, const Bureaucrat &in){
+std::ostream & operator<<( std::ostream & out, const Bureaucrat &in ) {
 	out << in.getName() << ", with grade of " << in.getGrade() << std::endl;
 	return out;
 }

@@ -6,7 +6,7 @@
 /*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 02:47:01 by hania             #+#    #+#             */
-/*   Updated: 2023/04/24 07:07:31 by hania            ###   ########.fr       */
+/*   Updated: 2023/04/30 09:07:55 by hania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@
 #include "C.hpp"
 #include <math.h>
 
-Base::~Base()
-{
+Base::~Base() {
 }
 
-Base*	generate( void )
-{
+Base*	generate( void ) {
 	Base	*res;
 
 	srand( time( NULL ) );
@@ -47,8 +45,7 @@ Base*	generate( void )
 	return res;
 }
 
-void	identify( Base *p )
-{
+void	identify( Base *p ) {
     std::cout << "-------------- " << "\033[1;33mIndetify Through Pointer\033[0m" << " --------------" << std::endl;
 
 	if (dynamic_cast<A *>(p) != NULL)
@@ -59,8 +56,7 @@ void	identify( Base *p )
 		std::cout << "The actual type of the object pointed to by p is " << "\033[1;31mC\033[0m" << std::endl;
 }
 
-void	identify( Base &p )
-{
+void	identify( Base &p ) {
 	Base	base;
     std::cout << "---------------- " << "\033[1;33mIndetify Through Base\033[0m" << " ---------------" << std::endl;
 	
