@@ -11,3 +11,6 @@ Create a program that implements the `ShrubberyCreationForm`, `RobotomyRequestFo
 
 ## Exercise 03: Intern
 Create a program that implements the `Intern` class, which has a `makeForm()` function that takes two strings as parameters and returns a pointer to a Form object. The function initializes the target of the form with the second parameter and prints a message. If the form name passed as parameter doesn't exist, an exception is thrown.
+
+![notes 1](./notes.05.pdf)
+![notes 2](./notes1.05.pdf)
