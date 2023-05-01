@@ -15,3 +15,6 @@ Create a template class `Array` that stores N elements of type T. It should have
 * `Array<T,N>(Array const &)`: copy constructor.
 * `Array<T,N> &operator=(Array const &)`: assignment operator overload.
 * `T &operator[](unsigned int const &) const`: operator overload that returns the reference of the element at the given index, with range checking. If the index is out of range, the function should throw an exception.
+
+<br><br>
+![CPP07 Templates notes](notes.07.pdf)
