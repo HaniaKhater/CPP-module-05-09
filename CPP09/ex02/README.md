@@ -22,6 +22,10 @@ Each of the following error cases throws its own exception as to have specific e
 * Outside of int limits
 * Already sorted
 
+<br>All of these errors are thoroughly tested by using the testerPmergeMe.sh script like this:
+```
+bash testerPmergeMe.sh
+```
 
 ## Example
 
