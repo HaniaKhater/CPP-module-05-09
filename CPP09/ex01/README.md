@@ -6,9 +6,9 @@
 * More operands than (operator + 1)
 * operator other than `+`, `-`, `*`, & `/`
 * dividing by 0<br>
-<br>All of these errors are thoroughly tested by using the input.csv file as the program's argument like this:
+<br>All of these errors are thoroughly tested by using the testerRPN.sh script like this:
 ```
-./RPN input.csv
+bash testerRPN.sh
 ```
 ## Live Calculations:
 To evaluate the expression, you need to loop through the input:
