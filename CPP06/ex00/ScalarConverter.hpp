@@ -6,7 +6,7 @@
 /*   By: hkhater <hkhater@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 06:18:02 by hania             #+#    #+#             */
-/*   Updated: 2023/07/11 01:44:21 by hkhater          ###   ########.fr       */
+/*   Updated: 2023/07/11 02:11:33 by hkhater          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
 	static void printInt(std::string input);
 	static void printFloat(std::string input);
 	static void printDouble(std::string input);
-    static void	convert( std::string in );
+    static void	convert( std::string input );
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hkhater <hkhater@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 06:17:56 by hania             #+#    #+#             */
-/*   Updated: 2023/07/11 01:49:46 by hkhater          ###   ########.fr       */
+/*   Updated: 2023/07/11 02:59:58 by hkhater          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,17 @@ void ScalarConverter::printInt(std::string input)
 		try
 		{
 			int i = 0;
-			bool dot_found = false;
+			bool period = false;
 			while (input[i])
 			{
 				if (i == 0 && (input[i] == '+' || input[i] == '-'))
 					i++;
-				if (dot_found == false && (input[i] == '.'))
+				if (period == false && (input[i] == '.'))
 				{
-					dot_found = true;
+					period = true;
 					i++;
 				}
-				if (dot_found == true && (i == static_cast<int>(input.length()-1) && input[i] == 'f'))
+				if (period == true && (i == static_cast<int>(input.length()-1) && input[i] == 'f'))
 					i++;
 				if (!isdigit(input[i]))
 					break;
@@ -106,17 +106,17 @@ void ScalarConverter::printFloat(std::string input)
 		try
 		{
 			int i = 0;
-			bool dot_found = false;
+			bool period = false;
 			while (input[i])
 			{
 				if (i == 0 && (input[i] == '+' || input[i] == '-'))
 					i++;
-				if (dot_found == false && (input[i] == '.'))
+				if (period == false && (input[i] == '.'))
 				{
-					dot_found = true;
+					period = true;
 					i++;
 				}
-				if (dot_found == true && (i == static_cast<int>(input.length()-1) && input[i] == 'f'))
+				if (period == true && (i == static_cast<int>(input.length()-1) && input[i] == 'f'))
 					i++;
 				if (!isdigit(input[i]))
 					break;
@@ -152,17 +152,17 @@ void ScalarConverter::printDouble(std::string input)
 		try
 		{
 			int i = 0;
-			bool dot_found = false;
+			bool period = false;
 			while (input[i])
 			{
 				if (i == 0 && (input[i] == '+' || input[i] == '-'))
 					i++;
-				if (dot_found == false && (input[i] == '.'))
+				if (period == false && (input[i] == '.'))
 				{
-					dot_found = true;
+					period = true;
 					i++;
 				}
-				if (dot_found == true && (i == static_cast<int>(input.length()-1) && input[i] == 'f'))
+				if (period == true && (i == static_cast<int>(input.length()-1) && input[i] == 'f'))
 					i++;
 				if (!isdigit(input[i]))
 					break;
