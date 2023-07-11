@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hkhater <hkhater@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 08:54:59 by hania             #+#    #+#             */
-/*   Updated: 2023/04/30 09:05:30 by hania            ###   ########.fr       */
+/*   Updated: 2023/07/11 03:12:02 by hkhater          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ Serializer::Serializer( const Serializer& ref ) {
 Serializer::~Serializer() {}
 
 Serializer& Serializer::operator=( const Serializer &rhs ) {
-    *this = rhs;
+    if (this == &rhs)
+		*this = rhs;
     return *this;
 }
 
