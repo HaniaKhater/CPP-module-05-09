@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hania <hania@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hkhater <hkhater@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 06:18:02 by hania             #+#    #+#             */
-/*   Updated: 2023/04/25 06:18:09 by hania            ###   ########.fr       */
+/*   Updated: 2023/07/11 01:44:21 by hkhater          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,18 @@
 #include <iostream>
 #include <sstream>
 
-class ScalarConverter {
-    public:
-        ScalarConverter();
-        ScalarConverter( const ScalarConverter &ref );
-        ~ScalarConverter();
-        ScalarConverter&    operator=( const ScalarConverter &rhs );
-        static double       convert( std::string in );
+class ScalarConverter
+{
+public:
+	ScalarConverter();
+	ScalarConverter(const ScalarConverter &ref);
+	~ScalarConverter();
+	ScalarConverter &operator=(const ScalarConverter &rhs);
+	static void printChar(std::string input);
+	static void printInt(std::string input);
+	static void printFloat(std::string input);
+	static void printDouble(std::string input);
+    static void	convert( std::string in );
 };
 
 #endif
