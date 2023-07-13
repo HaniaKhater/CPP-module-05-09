@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hania <hania@student.42.fr>                +#+  +:+       +#+         #
+#    By: hkhater <hkhater@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/22 23:28:46 by hania             #+#    #+#              #
-#    Updated: 2023/04/28 08:27:35 by hania            ###   ########.fr        #
+#    Updated: 2023/07/13 21:43:22 by hkhater          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		=	RPN
 
 COMPILER	=	c++
 
-CFLAGS		=	-g3 -Wall -Wextra -Werror -std=c++98
+CXXFLAGS	=	-g3 -Wall -Wextra -Werror -std=c++98
 
 INCS		=   ./RPN.hpp\
 

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hania <hania@student.42.fr>                +#+  +:+       +#+         #
+#    By: hkhater <hkhater@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/22 23:28:46 by hania             #+#    #+#              #
-#    Updated: 2023/04/28 08:30:55 by hania            ###   ########.fr        #
+#    Updated: 2023/07/13 21:43:17 by hkhater          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		=	PmergeMe
 
 COMPILER	=	c++
 
-CFLAGS		=	-g3 -Wall -Wextra -Werror -std=c++98
+CXXFLAGS	=	-g3 -Wall -Wextra -Werror -std=c++98
 
 INCS		=   ./PmergeMe.hpp\
 
